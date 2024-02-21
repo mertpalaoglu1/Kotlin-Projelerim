@@ -9,28 +9,30 @@
 
     <EditText
         android:id="@+id/numberOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="211dp"
+        android:layout_height="57dp"
         android:layout_marginBottom="29dp"
         android:ems="10"
         android:hint="Number 1"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/numberTwo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/Header" />
 
     <EditText
         android:id="@+id/numberTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
+        android:layout_width="211dp"
+        android:layout_height="57dp"
         android:layout_marginBottom="51dp"
         android:ems="10"
         android:hint="Number 2"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="@+id/numberOne"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numberOne" />
 
     <LinearLayout
@@ -45,11 +47,12 @@
         app:layout_constraintTop_toBottomOf="@+id/numberTwo">
 
         <Button
-            android:id="@+id/multButton"
+            android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="*"
+            android:onClick="addFunc"
+            android:text="+"
             android:textSize="20sp" />
 
         <Button
@@ -57,15 +60,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:onClick="subFunc"
             android:text="-"
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/addButton"
+            android:id="@+id/multButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="+"
+            android:onClick="multiplyFunc"
+            android:text="*"
             android:textSize="20sp" />
 
         <Button
@@ -73,6 +78,7 @@
             android:layout_width="98dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:onClick="divideFunc"
             android:text="/"
             android:textSize="20sp" />
     </LinearLayout>
@@ -84,6 +90,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="120dp"
+        android:text="Result:"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/Header"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="42dp"

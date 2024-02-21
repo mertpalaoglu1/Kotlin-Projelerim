@@ -3,25 +3,35 @@ package com.mertpalaoglu.kotlincalculator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import com.mertpalaoglu.kotlincalculator.databinding.ActivityMainBinding
 
-private lateinit var result: TextView
+//Added view binding.
+
+/*private lateinit var result: TextView
 private lateinit var addButton: Button
 private lateinit var subButton: Button
 private lateinit var multButton: Button
 private lateinit var divButton: Button
 private lateinit var numberOne: EditText
-private lateinit var numberTwo: EditText
+private lateinit var numberTwo: EditText*/
+
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    //for number 1 and number 2 inputs
+    var x : Double? =null
+    var y : Double? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        result=findViewById(R.id.result)
+        // OnClick Function added.
+
+       /* result=findViewById(R.id.result)
         addButton=findViewById(R.id.addButton)
         subButton=findViewById(R.id.subButton)
         multButton=findViewById(R.id.multButton)
@@ -64,43 +74,45 @@ class MainActivity : AppCompatActivity() {
             } else {
                 result.text = "Enter your numbers properly"
             }
-        }
+        }*/
 
     }
-}
-/*fun addFunc(myView: View) {
-    var x= numberOne.text.toString().toDoubleOrNull()
-    var y= numberTwo.text.toString().toDoubleOrNull()
+
+fun addFunc(myView: View) {
+    this.x= binding.numberOne.text.toString().toDoubleOrNull()
+    this.y= binding.numberTwo.text.toString().toDoubleOrNull()
     if (x != null && y != null) {
-        result.text = "Result is :${(x + y)}"
+        binding.result.text = "Result is :${(x!! + y!!)}"
     } else {
-        result.text = "Enter your numbers properly"
+        binding.result.text = "Enter your numbers properly !"
     }
 }
 fun subFunc(myView: View){
-    var x= numberOne.text.toString().toDoubleOrNull()
-    var y= numberTwo.text.toString().toDoubleOrNull()
+    this.x= binding.numberOne.text.toString().toDoubleOrNull()
+    this.y= binding.numberTwo.text.toString().toDoubleOrNull()
     if (x != null && y != null) {
-    result.text = "Result is :${(x - y)}"
-} else {
-    result.text = "Enter your numbers properly"
+    binding.result.text = "Result is :${(x!! - y!!)}"
+}   else {
+    binding.result.text = "Enter your numbers properly !"
     }
 }
 fun multiplyFunc(myView: View){
-    var x= numberOne.text.toString().toDoubleOrNull()
-    var y= numberTwo.text.toString().toDoubleOrNull()
+     this.x= binding.numberOne.text.toString().toDoubleOrNull()
+     this.y= binding.numberTwo.text.toString().toDoubleOrNull()
     if (x != null && y != null) {
-    result.text = "Result is :${(x * y)}"
-} else {
-    result.text = "Enter your numbers properly"
+        binding.result.text = "Result is :${(x!! * y!!)}"
+}   else {
+        binding.result.text = "Enter your numbers properly !"
     }
 }
 fun divideFunc(myView: View){
-    var x= numberOne.text.toString().toDoubleOrNull()
-    var y= numberTwo.text.toString().toDoubleOrNull()
+     this.x= binding.numberOne.text.toString().toDoubleOrNull()
+     this.y= binding.numberTwo.text.toString().toDoubleOrNull()
     if (x != null && y != null) {
-    result.text = "Result is :${(x / y)}"
-} else {
-    result.text = "Enter your numbers properly"
+        binding.result.text = "Result is :${(x!! / y!!)}"
+}   else {
+        binding.result.text = "Enter your numbers properly !"
    }
-}*/
+}
+
+}
