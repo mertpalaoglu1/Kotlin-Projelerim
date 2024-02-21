@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         divButton=findViewById(R.id.divButton)
         numberOne=findViewById(R.id.numberOne)
         numberTwo=findViewById(R.id.numberTwo)
+
         addButton.setOnClickListener{
             var x= numberOne.text.toString().toDoubleOrNull()
             var y= numberTwo.text.toString().toDoubleOrNull()
